@@ -9,11 +9,14 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-  const _props = defineProps({
-    collapsed: {
-      type: Boolean,
-      default: false
+<script lang="ts">
+  export default defineComponent({
+    name: 'Logo',
+    props: {
+      collapsed: {
+        type: Boolean,
+        default: false
+      }
     }
   })
 </script>

@@ -9,7 +9,7 @@ export interface FormSchema {
   labelMessageStyle?: object | string
   defaultValue?: any
   component?: ComponentType
-  componentProps?: object
+  componentProps?: any
   slot?: string
   rules?: object | object[]
   giProps?: GridItemProps
@@ -23,7 +23,7 @@ export interface FormProps {
   schemas?: FormSchema[]
   inline: boolean
   layout?: string
-  size: string
+  size: 'small' | 'medium' | 'large' | 'huge' | undefined
   collapsed: boolean
   collapsedRows: number
   disable: boolean
