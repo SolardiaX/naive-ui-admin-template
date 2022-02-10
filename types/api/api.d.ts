@@ -8,3 +8,14 @@ declare interface IApiResponse<T = any> {
   message: string
   data: T
 }
+
+declare interface IBaseModel {
+  id: number
+  created_at: Date
+  updated_at: Date
+}
+
+declare interface IPaging<T = any> {
+  items: T[]
+  total: number
+}

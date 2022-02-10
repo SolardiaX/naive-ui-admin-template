@@ -19,6 +19,7 @@
   import { useUserStore } from '@/store/modules/user'
   import { BasicModal, useModal } from '@/components/Modal'
   import { BasicForm, FormSchema, useForm } from '@/components/Form'
+  import { passwordParam } from '@/api/auth/http'
 
   const userMenu = [
     {
@@ -95,10 +96,12 @@
           await validate()
           const formData = getFieldsValue()
 
-          return await userStore.changePassword({
+          const result = await userStore.changePassword({
             user_id: userStore.currentUser?.user_id,
             ...formData
-          } as any)
+          } as passwordParam)
+
+          return result
         }
       })
 

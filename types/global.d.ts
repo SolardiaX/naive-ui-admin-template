@@ -27,6 +27,14 @@ declare global {
     $message: MessageApiInjection | undefined
   }
 
+  declare interface Fn<T = any, R = T> {
+    (..._arg: T[]): R
+  }
+
+  declare interface PromiseFn<T = any, R = T> {
+    (..._arg: T[]): Promise<R>
+  }
+
   declare interface IObject<T> {
     [index: string]: T
   }
@@ -46,4 +54,15 @@ declare global {
 
   declare type ComponentRef<T extends HTMLElement = HTMLDivElement> = ComponentElRef<T> | null
   declare type ElRef<T extends HTMLElement = HTMLDivElement> = Nullable<T>
+
+  declare interface ChangeEvent extends Event {
+    target: HTMLInputElement
+  }
+
+  declare type LabelValueOptions = {
+    label: string
+    value: any
+    disabled: boolean
+    [key: string]: string | number | boolean
+  }[]
 }

@@ -4,10 +4,10 @@ import type { DialogOptions } from 'naive-ui'
  * @description: 弹窗对外暴露的方法
  */
 export interface ModalMethods {
-  setProps: (props: any) => void
-  openModal: () => void
+  setProps: (_props: any) => void
+  openModal: () => Promise<void>
   closeModal: () => void
-  setSubLoading: (status: boolean) => void
+  setSubLoading: (_status: boolean) => void
 }
 
 /**
@@ -15,6 +15,6 @@ export interface ModalMethods {
  */
 export type ModalProps = DialogOptions
 
-export type RegisterFn = (ModalInstance: ModalMethods) => void
+export type RegisterFn = (_instance: ModalMethods) => void
 
 export type UseModalReturnType = [RegisterFn, ModalMethods]

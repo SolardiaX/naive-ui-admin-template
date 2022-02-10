@@ -116,9 +116,8 @@
 
 <script lang="ts">
   import { Ref } from 'vue'
-  import { NInput } from 'naive-ui' //hidden import
+  import { GridProps, NInput, NInputNumber, NSelect, NSwitch, NTimePicker, NTreeSelect, NUpload } from 'naive-ui' //hidden import
   import { DownOutlined, UpOutlined, QuestionCircleOutlined } from '@vicons/antd'
-  import { GridProps } from 'naive-ui'
   import { merge } from 'lodash'
   import { isArray } from '@/utils/check'
   import { useFormEvents } from './hooks/useFormEvents'
@@ -131,6 +130,12 @@
     name: 'BasicFrom',
     components: {
       NInput,
+      NInputNumber,
+      NSelect,
+      NSwitch,
+      NTimePicker,
+      NTreeSelect,
+      NUpload,
       DownOutlined,
       UpOutlined,
       QuestionCircleOutlined

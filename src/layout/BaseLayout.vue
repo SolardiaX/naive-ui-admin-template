@@ -101,7 +101,7 @@
 
       .layout-content-main {
         @apply relative;
-        margin: 0 10px 10px;
+        margin: 10px 10px;
         padding-top: 64px;
 
         &.fluid-header {

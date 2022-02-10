@@ -1,6 +1,5 @@
 import { NModal } from 'naive-ui'
 
-console.log(NModal.props)
 export const defaultProps = {
   ...NModal.props,
   subBtnText: {

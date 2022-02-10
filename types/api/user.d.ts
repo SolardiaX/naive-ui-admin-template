@@ -2,7 +2,7 @@
  * Copyright (c) 2022. All rights reserved by XtraVisions.
  */
 
-declare interface IUser {
+declare interface ICurrentUser {
   user_id: number
   username: string
   display: string

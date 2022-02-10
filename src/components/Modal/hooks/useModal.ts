@@ -38,7 +38,7 @@ export function useModal(props: any): UseModalReturnType {
     setProps: (props): void => {
       getInstance()?.setProps(props)
     },
-    openModal: () => {
+    openModal: async () => {
       getInstance()?.openModal()
     },
     closeModal: () => {

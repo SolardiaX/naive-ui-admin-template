@@ -6,10 +6,10 @@ import { defineStore } from 'pinia'
 import { currentUser, login, loginParam, passwordParam, changePassword } from '@/api/auth/http'
 import { getLocal, setLocal } from '@/store/storage'
 
-const storedUser = getLocal<IUser>('user')
+const storedUser = getLocal<ICurrentUser>('user')
 
 declare interface IUserState {
-  currentUser: IUser | null
+  currentUser: ICurrentUser | null
 }
 
 export const useUserStore = defineStore({
@@ -29,7 +29,7 @@ export const useUserStore = defineStore({
       this.currentUser = null
       setLocal('user', {})
     },
-    async login(params: loginParam): Promise<IUser | null> {
+    async login(params: loginParam): Promise<ICurrentUser | null> {
       const response = await login(params)
 
       if (response.code === 200) {
@@ -39,7 +39,7 @@ export const useUserStore = defineStore({
 
       return Promise.resolve(response.data)
     },
-    async getCurrentUser(): Promise<IUser | null> {
+    async getCurrentUser(): Promise<ICurrentUser | null> {
       const response = await currentUser()
 
       if (response.code == 200) {
@@ -51,6 +51,12 @@ export const useUserStore = defineStore({
     },
     async changePassword(param: passwordParam): Promise<boolean> {
       const response = await changePassword(param)
+
+      if (response.code === 200) {
+        this.$state.currentUser!.auth_token = response.data!
+        setLocal('user', this.$state.currentUser!)
+      }
+
       return Promise.resolve(response.code === 200)
     }
   }

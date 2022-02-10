@@ -9,7 +9,7 @@ export interface FormSchema {
   labelMessageStyle?: object | string
   defaultValue?: any
   component?: ComponentType
-  componentProps?: any
+  componentProps?: object
   slot?: string
   rules?: object | object[]
   giProps?: GridItemProps
@@ -23,7 +23,7 @@ export interface FormProps {
   schemas?: FormSchema[]
   inline: boolean
   layout?: string
-  size: 'small' | 'medium' | 'large' | 'huge' | undefined
+  size: string
   collapsed: boolean
   collapsedRows: number
   disable: boolean
@@ -47,14 +47,14 @@ export interface FormProps {
 
 export interface FormActionType {
   submit: () => Promise<any>
-  setProps: (formProps: Partial<FormProps>) => Promise<void>
-  setFieldsValue: <T>(values: T) => Promise<void>
-  clearValidate: (name?: string | string[]) => Promise<void>
+  setProps: (_formProps: Partial<FormProps>) => Promise<void>
+  setFieldsValue: <T>(_values: T) => Promise<void>
+  clearValidate: (_name?: string | string[]) => Promise<void>
   getFieldsValue: () => Recordable
   resetFields: () => Promise<void>
-  validate: (nameList?: any[]) => Promise<any>
+  validate: (_nameList?: any[]) => Promise<any>
 }
 
-export type RegisterFn = (formInstance: FormActionType) => void
+export type RegisterFn = (_formInstance: FormActionType) => void
 
 export type UseFormReturnType = [RegisterFn, FormActionType]

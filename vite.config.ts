@@ -1,4 +1,4 @@
-import dayjs from 'dayjs'
+import { format } from 'date-fns'
 import { UserConfig, ConfigEnv } from 'vite'
 import { loadEnv } from 'vite'
 import { resolve } from 'path'
@@ -11,7 +11,7 @@ const { dependencies, devDependencies, name, version } = pkg
 
 const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version },
-  lastBuildTime: dayjs().format('yyyy-MM-dd HH:mm:ss')
+  lastBuildTime: format(new Date(), 'yyyy-MM-dd HH:mm:ss')
 }
 
 function pathResolve(dir: string) {
